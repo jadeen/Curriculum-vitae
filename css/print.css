@@ -1,7 +1,7 @@
 
 body, html {
   background-color: white;
-  padding-top: 1.5em;
+  padding-top: 1em;
 }
 
 .paper {
@@ -28,13 +28,13 @@ header p {
 }
 
 .content {
-  page-break-inside:avoid; 
+  page-break-inside:avoid;
   page-break-after:auto;
 }
 
 .header-text {
   float:left;
-  margin-top: -1.6em;
+  margin-top: -1em;
 }
 
 .content-wrapper > .content:first-child {

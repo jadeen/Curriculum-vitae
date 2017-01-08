@@ -9,6 +9,7 @@ function render(resume) {
     // Load print-specific css
     var print = fs.readFileSync(__dirname + "/css/print.css", "utf-8");
 
+    var image = fs.readFileSync(__dirname + "/images/picture.png", "base64");
     // Register custom handlebars extensions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // foreach loops //
     // http://stackoverflow.com/a/12002281/1263876
@@ -53,11 +54,13 @@ function render(resume) {
     Handlebars.registerHelper('commalist', function(items, options) {
         return options.fn(items.join(', '));
     });
+    console.log("image [",image,"]");
     // Compile
     return Handlebars.compile(template)({
         css: css,
         print: print,
-        resume: resume
+        resume: resume,
+        image: image
     });
 }
 

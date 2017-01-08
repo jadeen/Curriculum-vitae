@@ -12,22 +12,20 @@
 <body>
   <div class="resume-wrapper">
     <article class="paper">
-      {{#resume.basics}}
         <header>
           <div class="header-content">
-            {{#if picture}}
               <div class="header-pic">
-                <img src="{{picture}}" class="pic" />
+                <img src="data:image/png;base64,{{image}}" class="pic">
               </div>
-            {{/if}}
             <div class="header-text">
               <p>
-                {{name}}
+                {{#resume.basics}}{{name}}{{/resume.basics}}
               </p>
-              <p class="subtitle">{{label}}</p>
+              <p class="subtitle">{{#resume.basics}}{{label}}{{/resume.basics}}</p>
             </div>
           </div>
         </header>
+        {{#resume.basics}}
         <div class="content-wrapper">
           <!-- CONTACT -->
           <section class="content">
@@ -44,7 +42,7 @@
                 {{/if}}
                 {{#if email}}
                   <ul>
-                    <li>Ville</li>
+                    <li>Adresse mail</li>
                     <li>{{email}}</li>
                   </ul>
                 {{/if}}
@@ -68,7 +66,7 @@
                   <div class="content-text">
                     {{#if address}}
                       <ul>
-                        <li>Addresse</li>
+                        <li>Adresse</li>
                         <li>{{address}}</li>
                       </ul>
                     {{/if}}
@@ -82,7 +80,7 @@
                     {{/if}}
                     {{#if region}}
                       <ul>
-                        <li>Region</li>
+                        <li>Région</li>
                         <li>{{region}}</li>
                       </ul>
                     {{/if}}
@@ -97,7 +95,7 @@
             <section class="content">
               <div class="row">
                 <div class="content-cat">
-                  Langue
+                  Langues
                 </div>
                 <div class="content-text">
                   {{#each resume.languages}}
@@ -149,7 +147,7 @@
                   <div class="row">
                     <div class="content-cat big-text">
                       {{#if $first}}
-                        Experience professionnel
+                        Experiences professionnelles
                       {{/if}}
                       {{#if startDate}}
                         {{#if endDate}}
@@ -166,13 +164,13 @@
                         {{/if}}
                         {{#ifCond website '&&' company}}
                           <strong>{{position}}</strong>
-                          at <strong><a href="{{website}}">{{company}}:</a></strong>
+                          at <strong><a href="{{website}}">{{company}} :</a></strong>
                         {{else}}
                           {{#if company.length}}
                             <strong>{{position}}</strong>
-                            at <strong>{{company}}:</strong>
+                            at <strong>{{company}} :</strong>
                           {{else}}
-                            <strong>{{position}}:</strong>
+                            <strong>{{position}} :</strong>
                           {{/if}}
                         {{/ifCond}}
                         </p>
@@ -228,7 +226,7 @@
                   <div class="row">
                     <div class="content-cat big-text">
                       {{#if $first}}
-                        Education
+                        Éducation
                       {{/if}}
                       {{#if startDate}}
                         {{#if endDate}}
@@ -248,7 +246,7 @@
                         {{#if gpa}}
                         <p class="highlight">
                           {{#if studyType}}
-                          {{studyType}}:
+                          {{studyType}} :
                           {{/if}}
                           <i>{{area}} ({{gpa}})</i>
                         </p>
@@ -297,7 +295,7 @@
           <section class="content">
             <div class="row">
               <div class="content-cat">
-                Compétence(s)
+                Compétences
               </div>
               <div class="content-text skills-listing">
                 {{#foreach resume.skills}}
@@ -305,12 +303,12 @@
                     <span class="name">
                       {{#if name}}
                         <strong>
-                          {{name}}{{#if level}}{{else}}:{{/if}}
+                          {{name}}{{#if level}}{{else}} :{{/if}}
                         </strong>
                       {{/if}}
                     </span>
                     {{#if level}}
-                      <span>({{level}}):</span>
+                      <span>({{level}}) :</span>
                     {{/if}}
                     {{#if keywords.length}}
                       {{#commalist keywords}}{{.}}{{/commalist}}
@@ -333,7 +331,7 @@
                       <span class="name">
                         {{#if name}}
                           <strong>
-                            {{name}}:
+                            {{name}} :
                           </strong>
                         {{/if}}
                       </span >
