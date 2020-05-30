@@ -44,7 +44,7 @@
     "url": "https://github.com/TimDaub/jsonresume-theme-paper/issues"
   },
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4"
+    "handlebars": "^4.3.0"
   },
   "description": "A theme for JSON Resume",
   "devDependencies": {},
